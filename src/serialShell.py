@@ -3,15 +3,19 @@ import random
 import time
 
 def serialshellSort(array):
+    '''
+    Perfom shell sort of an array with length n. Initial gap is n/2.
+    '''
     index = 0
-    gap = len(array)//2
+    gap = len(array)//2         #initial gap is the length of the array/2
 
-    while gap > 0:
+    #Perform sorting
+    while gap > 0:              
         if (index + gap) < len(array):
-            if(array[index] > array[index+gap]):
-                array[index], array[index+gap] = array[index+gap], array[index]
-            index+=1
-        else:
+            if(array[index] > array[index+gap]):  
+                array[index], array[index+gap] = array[index+gap], array[index] #swap
+            index+=1                                                            #next index
+        else:                   #if index+gap is out of bounds, reset and continue to next while iteration                                                
             index = 0
             gap = gap//2
     return array
