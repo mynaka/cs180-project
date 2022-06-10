@@ -21,7 +21,7 @@ def serialbubbleSort(array):
 N = int(input("Enter array size: "))
 unsortedArray = []
 for i in range(N):
-    unsortedArray.append(random.randint(-N//2, N//2))   #Generate rnaodmized array
+    unsortedArray.append(round(random.uniform(-N//2, N//2), 2))   #Generate randomized array
 
 #Set timer and run function
 start = time.time()
@@ -29,5 +29,5 @@ sortedArray = serialbubbleSort(unsortedArray)
 end = time.time()
 
 #print("Unsorted Array:",unsortedArray)      #Print unsorted array
-#print("Sorted Array:  ",sortedArray)      #Print sorted array
+#print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
 print("Time elapsed:", end-start)

@@ -23,7 +23,7 @@ def serialshellSort(array):
 N = int(input("Enter array size: "))
 array = []
 for i in range(N):
-    array.append(random.randint(-N//2, N//2))   #Generate rnaodmized array
+    array.append(round(random.uniform(-N//2, N//2), 2))   #Generate randomized array
 unsortedArray = deepcopy(array)
 
 #Set timer and run function
@@ -32,5 +32,5 @@ sortedArray = serialshellSort(array)
 end = time.time()
 
 #print("Unsorted Array:",unsortedArray)      #Print unsorted array
-#print("Sorted Array:  ",sortedArray)      #Print sorted array
+#print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
 print("Time elapsed:", end-start)

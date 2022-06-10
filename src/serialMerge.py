@@ -45,7 +45,7 @@ def serialmergeSort(array):
 N = int(input("Enter array size: "))
 array = []
 for i in range(N):
-    array.append(random.randint(-N//2, N//2))   #Generate rnaodmized array
+    array.append(round(random.uniform(-N//2, N//2), 2))   #Generate randomized array
 unsortedArray = deepcopy(array)
 
 #Set timer and run function
@@ -53,6 +53,6 @@ start = time.time()
 serialmergeSort(array)
 end = time.time()
 
-#print("Unsorted Arrray:",unsortedArray)
-#print("Sorted Array:   ",array)      #Print sorted array
+#print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
+#print("Sorted Array:   ",array)      #Print sorted array(output)
 print("Time elapsed:", end-start)
