@@ -1,21 +1,22 @@
+from copy import deepcopy
 import random
 import time
 
 def serialbubbleSort(array):
     '''
-    #Sort the list of integers through the Bubble Sort Algorithm (Serial Implementation)
+    Sort the list of integers through the Bubble Sort Algorithm (Serial Implementation)
     '''
     size = len(array)
-
+    temp = deepcopy(array)
     for i in range(size):
         swap = False            #reset swap flag to false
         for j in range(size-i-1):
-            if array[j] > array[j+1]:
-                array[j], array[j+1] = array[j+1], array[j] #Swap list elements
+            if temp[j] > temp[j+1]:
+                temp[j], temp[j+1] = temp[j+1], temp[j] #Swap list elements
                 swap = True                                 #Set swap flag to true
         if not swap:       #If swap remains false, break loop
             break          #This means that the array is already sorted
-    return array
+    return temp
 
 N = int(input("Enter array size: "))
 unsortedArray = []
@@ -27,5 +28,6 @@ start = time.time()
 sortedArray = serialbubbleSort(unsortedArray)
 end = time.time()
 
-#print(sortedArray)      #Print sorted array
+#print("Unsorted Array:",unsortedArray)      #Print unsorted array
+#print("Sorted Array:  ",sortedArray)      #Print sorted array
 print("Time elapsed:", end-start)
