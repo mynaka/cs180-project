@@ -4,17 +4,11 @@ import random
 import time
 from multiprocessing import Pool #https://docs.python.org/3/library/multiprocessing.html
 
-def insertionSort(array):
+def sort(array):
     '''
-    Perform insertion sort of the array. Returns sorted array.
+    Returns sorted array. Subroutine for parallel threads
     '''
-    edge = 1        #variable to keep track of how many iterations have happened. For optimization purposes
-    for i in range(1, len(array)):
-        for j in range(0, len(array)-edge):
-            if(array[j] > array[j+1]):
-                array[j], array[j+1] = array[j+1], array[j] #swap
-        edge+=1
-    return array
+    return sorted(array)
 
 def parallelbucketSort(array):
     '''
@@ -43,7 +37,7 @@ def parallelbucketSort(array):
             
 
     pool = Pool(processes=cpuCount)
-    sorted = pool.map(insertionSort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
+    sorted = pool.map(sort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
     for i in sorted:                                        #will process each bucket parallelly
         for j in i:                                         #Each partitioned intermediate data will be processed by the processors
             sort.append(j)
