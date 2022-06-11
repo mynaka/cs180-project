@@ -1,14 +1,14 @@
 P3 = python3
 default: bubble
 
-bubble:					#run naive program
-	$(P3) serialBubble.py
+bubble:					#run serial bubble program
+	$(P3) bubble_sort/serialBubble.py
 
-merge:					#run naive program
-	$(P3) serialMerge.py
+merge:					#run serial merge program
+	$(P3) merge_sort/serialMerge.py
 
-shell:					#run naive program
-	$(P3) serialShell.py
+shell:					#run serial shell program
+	$(P3) shell_sort/serialShell.py
 
-bucket:					#run naive program
-	$(P3) serialBucket.py
+bucket:					#run serial bucket program
+	$(P3) bucket_sort/serialBucket.py
