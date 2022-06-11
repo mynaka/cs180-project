@@ -40,7 +40,12 @@ def serialmergeSort(array):
             R.pop(0)
             i+=1
  
-
+def printArray(unsortedArray, sortedArray):
+    '''
+    Print input and output arrays
+    '''
+    print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
+    print("Sorted Array:   ",sortedArray)      #Print sorted array(output)
  
 N = int(input("Enter array size: "))
 array = []
@@ -53,6 +58,5 @@ start = time.time()
 serialmergeSort(array)
 end = time.time()
 
-#print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
-#print("Sorted Array:   ",array)      #Print sorted array(output)
+#printArray(unsortedArray, sortedArray)
 print("Time elapsed:", end-start)

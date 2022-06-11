@@ -31,8 +31,12 @@ def serialbucketSort(array):
 
     return sort
  
- 
- 
+def printArray(unsortedArray, sortedArray):
+    '''
+    Print input and output arrays
+    '''
+    print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
+    print("Sorted Array:   ",sortedArray)      #Print sorted array(output)
  
 N = int(input("Enter array size: "))
 array = []
@@ -45,6 +49,5 @@ start = time.time()
 sortedArray = serialbucketSort(array)
 end = time.time()
 
-#print("Unsorted Array:",unsortedArray)      #Print unsorted array (output)
-#print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
+#printArray(unsortedArray, sortedArray)
 print("Time elapsed:", end-start)

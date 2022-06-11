@@ -16,9 +16,9 @@ def insertionSort(array):
         edge+=1
     return array
 
-def serialbucketSort(array):
+def parallelbucketSort(array):
     '''
-    Performs a bucket sort of an array (serial implementatiion)
+    Performs a bucket sort of an array (parallel implementatiion)
     ''' 
     n = len(array)  
     cpuCount = multiprocessing.cpu_count()
@@ -27,7 +27,7 @@ def serialbucketSort(array):
     for i in array:
         #arranges elements to *cpuCount* buckets based on its rounded-down whole number value
         if i > 0:
-            multiplier = 0
+            multiplier = 0  #partition value
             while(cpuCount//2 > multiplier):
                 if(i >= ((multiplier*n)//cpuCount)) and (i < ((multiplier+1)*n)//cpuCount):
                     bucket[multiplier+int(cpuCount//2)].append(i)
@@ -45,10 +45,17 @@ def serialbucketSort(array):
     pool = Pool(processes=cpuCount)
     sorted = pool.map(insertionSort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
     for i in sorted:                                        #will process each bucket parallelly
-        for j in i:
+        for j in i:                                         #Each partitioned intermediate data will be processed by the processors
             sort.append(j)
     return sort
  
+def printArray(unsortedArray, sortedArray):
+    '''
+    Print input and output arrays
+    '''
+    print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
+    print("Sorted Array:   ",sortedArray)      #Print sorted array(output)
+
 N = int(input("Enter array size: "))
 array = []
 for i in range(N):
@@ -57,9 +64,8 @@ unsortedArray = deepcopy(array)
 
 #Set timer and run function
 start = time.time()
-sortedArray = serialbucketSort(array)
+sortedArray = parallelbucketSort(array)
 end = time.time()
 
-#print("Unsorted Array:",unsortedArray)      #Print unsorted array (output)
-#sprint("Sorted Array:  ",sortedArray)      #Print sorted array(output)
+#printArray(unsortedArray, sortedArray)
 print("Time elapsed:", end-start)

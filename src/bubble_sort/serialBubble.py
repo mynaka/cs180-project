@@ -18,6 +18,13 @@ def serialbubbleSort(array):
             break          #This means that the array is already sorted
     return temp
 
+def printArray(unsortedArray, sortedArray):
+    '''
+    Print input and output arrays
+    '''
+    print("Unsorted Arrray:",unsortedArray)    #Print unsorted array
+    print("Sorted Array:   ",sortedArray)      #Print sorted array(output)
+
 N = int(input("Enter array size: "))
 unsortedArray = []
 for i in range(N):
@@ -28,6 +35,5 @@ start = time.time()
 sortedArray = serialbubbleSort(unsortedArray)
 end = time.time()
 
-#print("Unsorted Array:",unsortedArray)      #Print unsorted array
-#print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
+#printArray(unsortedArray, sortedArray)
 print("Time elapsed:", end-start)
