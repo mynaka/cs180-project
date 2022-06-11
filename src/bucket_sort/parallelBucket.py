@@ -2,8 +2,7 @@ from copy import deepcopy
 import multiprocessing
 import random
 import time
-from multiprocessing import Pool
-from numpy import sort #https://docs.python.org/3/library/multiprocessing.html
+from multiprocessing import Pool #https://docs.python.org/3/library/multiprocessing.html
 
 def insertionSort(array):
     '''
