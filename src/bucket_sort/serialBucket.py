@@ -45,6 +45,6 @@ start = time.time()
 sortedArray = serialbucketSort(array)
 end = time.time()
 
-print("Unsorted Array:",unsortedArray)      #Print unsorted array (output)
-print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
+#print("Unsorted Array:",unsortedArray)      #Print unsorted array (output)
+#print("Sorted Array:  ",sortedArray)      #Print sorted array(output)
 print("Time elapsed:", end-start)
