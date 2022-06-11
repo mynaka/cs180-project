@@ -12,3 +12,6 @@ shell:					#run serial shell program
 
 bucket:					#run serial bucket program
 	$(P3) bucket_sort/serialBucket.py
+
+pbucket:					#run serial bucket program
+	$(P3) bucket_sort/parallelBucket.py
