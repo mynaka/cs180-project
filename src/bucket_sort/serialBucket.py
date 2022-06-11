@@ -2,17 +2,11 @@ from copy import deepcopy
 import random
 import time
 
-def insertionSort(array):
+def sort(array):
     '''
-    Perform insertion sort of the array. Returns sorted array.
+    Returns sorted array.
     '''
-    edge = 1        #variable to keep track of how many iterations have happened. For optimization purposes
-    for i in range(1, len(array)):
-        for j in range(0, len(array)-edge):
-            if(array[j] > array[j+1]):
-                array[j], array[j+1] = array[j+1], array[j] #swap
-        edge+=1
-    return array
+    return sorted(array)
 
 def serialbucketSort(array):
     '''
@@ -25,7 +19,7 @@ def serialbucketSort(array):
         bucket[int(i//1)+n//2].append(i)    #arranges elements to buckets based on its rounded-down whole number value
     
     for i in bucket:                        #perform insertiion sort on each buckets then append it on output
-        sortBucket = insertionSort(i)
+        sortBucket = sort(i)
         for i in sortBucket:
             sort.append(i)
 
