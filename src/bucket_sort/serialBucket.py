@@ -2,7 +2,7 @@ from copy import deepcopy
 import random
 import time
 
-def sort(array):
+def ssort(array):
     '''
     Returns sorted array.
     '''
@@ -19,7 +19,7 @@ def serialbucketSort(array):
         bucket[int(i//1)+n//2].append(i)    #arranges elements to buckets based on its rounded-down whole number value
     
     for i in bucket:                        #perform insertiion sort on each buckets then append it on output
-        sortBucket = sort(i)
+        sortBucket = ssort(i)
         for i in sortBucket:
             sort.append(i)
 
