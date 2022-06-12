@@ -4,7 +4,7 @@ import random
 import time
 from multiprocessing import Pool #https://docs.python.org/3/library/multiprocessing.html
 
-def sort(array):
+def ssort(array):
     '''
     Returns sorted array. Subroutine for parallel threads
     '''
@@ -37,7 +37,7 @@ def parallelbucketSort(array):
             
 
     pool = Pool(processes=cpuCount)
-    sorted = pool.map(sort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
+    sorted = pool.map(ssort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
     for i in sorted:                                        #will process each bucket parallelly
         for j in i:                                         #Each partitioned intermediate data will be processed by the processors
             sort.append(j)
