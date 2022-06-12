@@ -13,6 +13,9 @@ shell:					#run serial shell program
 bucket:					#run serial bucket program
 	$(P3) bucket_sort/serialBucket.py
 
+pbubble:					#run serial bucket program
+	$(P3) bubble_sort/parallelBubble.py
+
 pmerge:					#run serial bucket program
 	$(P3) merge_sort/parallelMerge.py
 
