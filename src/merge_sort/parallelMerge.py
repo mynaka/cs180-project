@@ -70,6 +70,8 @@ def parallelmergeSort(array):
 
     pool = Pool(processes=cpuCount)
     sorted = pool.map(mergeSort,[i for i in subArray])    #parallel core-affine threads with insertionSort as a subroutine
+    pool.close()
+    pool.join()
     
     #merge all remaining sorted arrrays
     while(len(sorted) > 1):

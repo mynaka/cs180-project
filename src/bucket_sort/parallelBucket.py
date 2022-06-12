@@ -38,6 +38,9 @@ def parallelbucketSort(array):
 
     pool = Pool(processes=cpuCount)
     sorted = pool.map(ssort,[i for i in bucket])    #parallel core-affine threads with insertionSort as a subroutine
+    pool.close()
+    pool.join()
+
     for i in sorted:                                        #will process each bucket parallelly
         for j in i:                                         #Each partitioned intermediate data will be processed by the processors
             sort.append(j)
